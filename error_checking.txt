@@ -1,0 +1,15 @@
+## Error 발생
+/usr/bin/ld: ../../bin/test_triangulation: hidden symbol `_ZNK3fmt3v106detail10locale_ref3getISt6localeEET_v' in /usr/local/lib/libfmt.a(format.cc.o) is referenced by DSO
+/usr/bin/ld: final link failed: bad value
+collect2: error: ld returned 1 exit status
+
+cmake .. -DGFLAGS_NAMESPACE=google -DCMAKE_CXX_FLAGS=-fPIC _DUSE_BASIC_LOGGING=ON .. 
+
+
+
+## Error 발생
+error: XDG_RUNTIME_DIR not set in the environment.
+Framebuffer with requested attributes not available. Using available framebuffer. You may see visual artifacts.X11 Error: GLXBadFBConfig
+Pangolin X11: Indirect GLX rendering context obtained
+
+export XDG_RUNTIME_DIR=/tmp/runtime-$USER
