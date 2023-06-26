@@ -7,9 +7,10 @@ This is the Implementation of SLAM using Kitti Data with C++
 ## 1. FrontEnd Process
 
 ### 1. Keypoint Detector
+
 I used ***Keypoint Detector(cv::GFTTDetector)***. This functionn is the ***Lucas-kanade algorithm.***
 Lucas-Kanade Algorithm is a method of describing pixels' movement between images.  
-Now considera 2D pixel. Its coordinates at time t are x, y. Due to the movement of the camera, its image coordinates will change. ***We want to estimate the position of this pixel at other times.***  
+Now considera 2D pixel. Its coordinates at time t are x, y. Due to the movement of the camera, its image coordinates will change. ***We want to estimate the position of this pixel at other times***.
 
 - Assumption
 
@@ -79,3 +80,4 @@ A=
 \end{pmatrix}
 $$
 
+## 2. BackEnd Process
