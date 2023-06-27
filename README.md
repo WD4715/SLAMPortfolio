@@ -22,13 +22,13 @@ This means that if dx, dy, dt is too small, so the value doesn't change.
 We can solve the above equation using ***Taylor Expension.***
 
 $$
-I(x+dx, y+dy, t+dt) \approx I(x, y, t) + {\partial{I} \ over \parital{x}}dx + {\partial{I} \ over \parital{y}}dy + {\partial{I} \ over \parital{t}}dt
+I(x+dx, y+dy, t+dt) \approx I(x, y, t) + {\partial{I} \ over \partial{x}}dx + {\partial{I} \ over \partial{y}}dy + {\partial{I} \ over \partial{t}}dt
 $$
 
 Because we assume that the brightness does not chage, so we have:
 
 $$
-{\partial{I} \over \partial{x}}dx + {\partial{I} \over \partial{y}}dy + {\partial{I} \over \partial{t}}dt =0 
+{\partial{I}\over\partial{x}}dx + {\partial{I} \over \partial{y}}dy + {\partial{I} \over \partial{t}}dt = 0 
 $$
 
 this is the same with :
@@ -72,7 +72,10 @@ A=
    ...  \\
    [I_x, I_y]_k \\
 \end{pmatrix}
-,b=
+$$
+
+$$
+b=
 \begin{pmatrix} 
    I_{t1}  \\
    ...  \\
@@ -80,7 +83,7 @@ A=
 \end{pmatrix}
 $$
 
-###2. Triangularation
+### 2. Triangularation
 
 Then the next step is to get **the Spatial Position of the FEATURE POINT** using the camera pose.
 
