@@ -104,7 +104,8 @@ Let's multiply [x<sub>2</sub>]<sub>x</sub> at the left side.
 
 Then We can get the following equations:
 
-[x_{2}]_{x}x_{2}=s_{1}[x_{2}]_{x}Rx_{1}+[x_{2}]_{x}t
+$[x_{2}]_{x}x_{2}=s_{1}[x_{2}]_{x}Rx_{1}+[x_{2}]_{x}t$
+
 
 $$
 s_2 [x_2]_{x} x_2 = s_1 [x_2]_x Rx_1 + [x_2]_x t
