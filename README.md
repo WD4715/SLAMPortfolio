@@ -22,7 +22,7 @@ This means that if dx, dy, dt is too small, so the value doesn't change.
 We can solve the above equation using ***Taylor Expension.***
 
 $$
-I(x+dx, y+dy, t+dt) \approx I(x, y, t) + {\partial{I} \ over \partial{x}}dx + {\partial{I} \ over \partial{y}}dy + {\partial{I} \ over \partial{t}}dt
+I(x+dx, y+dy, t+dt) \approx I(x, y, t) + {\partial{I} \over \partial{x}}dx + {\partial{I} \over \partial{y}}dy + {\partial{I} \over \partial{t}}dt
 $$
 
 Because we assume that the brightness does not chage, so we have:
