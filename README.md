@@ -151,8 +151,10 @@ $$
 P(x_k|x_{k-1}, x_0, u_{0:k}, z_{1:k-1})=P(x_k|x_{k-1}, u_{k}) 
 $$
 
+and
+
 $$
-P(x_{k-1}|x_0, u_{1:k}, z_{1:k-1})}=P(x_{k-1}|x_0, u_{1:k-1}, z_{1:k-1})}
+P(x_{k-1}|x_0, u_{1:k}, z_{1:k-1})=P(x_{k-1}|x_0, u_{1:k-1}, z_{1:k-1})
 $$
 
 In other words, we only need to maintain the current state estimation and update it increm
