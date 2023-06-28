@@ -104,9 +104,6 @@ Let's multiply [x<sub>2</sub>]<sub>x</sub> at the left side.
 
 Then We can get the following equations:
 
-$[x_{2}]_{x}x_{2}=s_{1}[x_{2}]_{x}Rx_{1}+[x_{2}]_{x}t$
-
-
 $$
 s_2 [x_2]_{x} x_2 = s_1 [x_2]_x Rx_1 + [x_2]_x t
 $$
@@ -120,7 +117,42 @@ $$
 $$
 
 
---> The right side of can be regarded as an equation of s<sub>1</sub>, and s<sub>1</sub> can be obtained directly from it.
+- The right side of can be regarded as an equation of s<sub>1</sub>, and s<sub>1</sub> can be obtained directly from it.
 And **Meaning of calculating of the depth of keypoint is the same as the Spatial position of the feature point.**
 
 ## 2. BackEnd Process
+
+### 1. Kalman Filter
+The visual odometry(Front-End) has a short memory, but we hope that the system can maintain ***the entire motion trajectory in an optimal state for a long time.***  
+Therefore, in the backend optization, we usually consider the problem ofr state estimation for longer time and not only use the past information to update our current state ***but also use future information to update ourselves.***
+we have the ***poses from x_<sub>0</sub>, ..., x<sub>N</sub>*** and ***observation y<sub>1</sub>, ..., y<sub>M</sub>.***  
+
+$$
+x_{k}=f(x_{k-1}, u_k) + w_k, z_{k, j}=h(y_j, x_k) + v_{k, j}
+$$
+
+We know that every measurement is affected by noise, so the poses ***x*** and landark ***y*** here are regarded as ***random variables***.  
+Therefore, the question becomes: when I have some motion data ***u*** and observation data ***z***, how to determine the state ***x*** and larndmarks ***y***'s distributuon?  
+
+***We hope to use the data from 0 to k to estimate the current state distribution:***  
+
+
+$$
+P(x_k|x_0, u_{0:k}, z_{1:k}) \propto P(z_k|x_k)P(x_k|x_0, u_{0:k}, z_{1:k-1})
+$$
+
+$$
+P(x_k|x_0, u_{0:k}, z_{1:k-1})=\int{P(x_k|x_{k-1}, x_0, u_{0:k}, z_{1:k-1})P(x_{k-1}|x_0, u_{1:k}, z_{1:k-1})}dx_{k-1}
+$$
+
+Because of ***Markov Property***, We can modify this equation like below :
+
+$$
+P(x_k|x_{k-1}, x_0, u_{0:k}, z_{1:k-1})=P(x_k|x_{k-1}, u_{k}) 
+$$
+
+$$
+P(x_{k-1}|x_0, u_{1:k}, z_{1:k-1})}=P(x_{k-1}|x_0, u_{1:k-1}, z_{1:k-1})}
+$$
+
+In other words, we only need to maintain the current state estimation and update it increm
