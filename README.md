@@ -200,5 +200,5 @@ And we can write the posterior $P(x_k|z_k)$ . In order to do that, we need to ca
 
 $$
 N(\hat{x_k}, \hat{P_k})=
-\eta N(\mathcal{C_k}x_k, \mathcal{Q}) \dot N(x_k, P_k)
+\eta N(\mathcal{C_k}x_k, \mathcal{Q}) N(x_k, P_k)
 $$
