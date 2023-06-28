@@ -157,4 +157,48 @@ $$
 P(x_{k-1}|x_0, u_{1:k}, z_{1:k-1})=P(x_{k-1}|x_0, u_{1:k-1}, z_{1:k-1})
 $$
 
-In other words, we only need to maintain the current state estimation and update it increm
+In other words, we only need to maintain the current state estimation and update it incrementally. Futhermore, if it is assumed that the state qunatity obeys a ***Gaussian distribution***, we only need to consider ***the state variable's mean and covariance.***  
+You can image that the robot's localization module has been outputting two pieces of information: ***the estimated pose(mean)*** and the ***uncertainty(covariance.)***  
+
+$$
+x_{k}=A_{k}x_{k-1}+u_{k}+w_{k}
+$$
+
+$$
+z_{k} = C_{k}x_{k} +v_{k}
+$$
+
+and we assume the states and noises are all Gaussian:
+
+$$
+w_{k} \sim N(0, R)
+$$
+
+$$
+v_{k} \sim N(0, Q)
+$$
+
+#### 1. Prediction
+The Kalman filter's first step is to determine the distribution of x<sub>k</sub> through the equation of motion, which is called the prior at time k.
+
+$$
+P(x_k|x_0, u_{1:k}, z_{1:k-1})=
+N(\mathcal{A_{k}}\hat{x_{k-1}}+\mathcal{u}_{k},\mathcal{A_k}\hat{\mathcal{P_{k}}}\mathcal{A_k^T}+R)
+$$
+
+Thus we can use ***prediction*** like below:
+
+$$
+\check{x_{k}}=\mathcal{A_{k}}\hat{x_{k-1}} + u_k
+$$
+
+$$
+\check{P_k}=\mathcal{A_k}\hat{P_{k-1}}\mathcal{A_k^T} +R
+$$
+
+And we can write the posterior $P(x_k|z_k)$ . In order to do that, we need to calculate the product of the prior and the likelihood according to Bayesian formula.  
+
+$$
+N(\hat{x_k}, \hat{P_k})=
+\eta N(\mathcal{C_k}x_k, \mathcal{Q}) \dot N(x_k, P_k)
+$$
