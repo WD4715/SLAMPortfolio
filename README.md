@@ -202,3 +202,11 @@ $$
 N(\hat{x_k}, \hat{P_k})=
 \eta N(\mathcal{C_k}x_k, \mathcal{Q}) N(x_k, P_k)
 $$
+
+Foucus on the exponential part of the above equation:
+
+$$
+(x_k-\hat{x_k})^T \hat{P_{k}^{-1}} (x_k - \hat{x_k}) =
+(z_k - C_{k}x_k)^{T} \hat{Q_k}^{-1} (z_k-C_kx_k) + (x_k-\check{x_k})^{T} \check{P_k^{-1}} (x_k-\check{x_k})  
+$$
+
